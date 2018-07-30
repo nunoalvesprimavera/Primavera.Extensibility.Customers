@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bem-vindo<!-- <img src='assets/imgs/Primavera_.png' width=""> -->
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding center text-center>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit">
+      <ion-list>
+          <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input formControlName="username" [(ngModel)]="user" type="text"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched">
+            <p danger>Por favor introduza o seu username</p>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input formControlName="password" [(ngModel)]="pass" type="password"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
+            <p danger>Por favor introduza a sua passoword</p>
+          </ion-item>
+
+      </ion-list>
+
+        <div padding>
+          <button ion-button type="submit" (click)="login()">Log in</button>
+        </div>
+        <ion-list>
+          <ion-item>
+            <h2>{{values}}</h2>
+          </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
+
+<!-- <div class="login-page">
+    <div class="form">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit">
+          <ion-list>
+              <ion-item>
+                <ion-label>Username</ion-label>
+                <ion-input formControlName="username" [(ngModel)]="user" type="text"></ion-input>
+              </ion-item>
+              <ion-item *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched">
+                <p danger>Por favor introduza o seu username</p>
+              </ion-item>
+              
+              <ion-item>
+                <ion-label>Password</ion-label>
+                <ion-input formControlName="password" [(ngModel)]="pass" type="password"></ion-input>
+              </ion-item>
+              <ion-item *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
+                <p danger>Por favor introduza a sua passoword</p>
+              </ion-item>
+          </ion-list>
+          <button ion-button type="submit" (click)="login()">Log in</button>
+      </form>
+    </div>
+  </div> -->
