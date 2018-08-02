@@ -15,21 +15,24 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class ClientesPage {
   clientes : any[] = []
+  //clientModel: any
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public apiProvider: ApiProvider,
               public modalCtrl: ModalController) {
   this.getBaseClientes()
+  //localStorage.setItem('cliente', this.clientModel)
   }
 
-  openModal() {
-    let modal = this.modalCtrl.create('EditaClientesPage');
-    modal.present();
-  }
+  // openPage() {
+  //   const clients = this.clientes
+  //   this.navCtrl.push('EditaClientesPage', {clients: clients})
+  // }
 
 
   ionViewDidLoad() {
+    this.getBaseClientes()
     console.log('ionViewDidLoad ClientesPage');
   }
   
@@ -37,6 +40,7 @@ export class ClientesPage {
     this.apiProvider.getBaseClientes()
         .subscribe((data) => { 
         this.clientes = data.DataSet.Table
+        console.log(this.clientes)
         })
   }
 }

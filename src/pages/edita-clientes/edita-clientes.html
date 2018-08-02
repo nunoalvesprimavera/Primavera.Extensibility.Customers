@@ -6,8 +6,8 @@
 -->
 <ion-header>
     <ion-toolbar>
-      <ion-title>
-        Description
+      <ion-title *ngFor="let cliente of clientes">
+          {{cliente.Cliente}} - {{cliente.Nome}} 
       </ion-title>
       <ion-buttons start>
         <button ion-button (click)="dismissModal()">
@@ -20,18 +20,10 @@
   
   <ion-content>
     <ion-list>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="{{character.image}}">
-          </ion-avatar>
-          <h2>{{character.name}}</h2>
-          <p>{{character.quote}}</p>
-        </ion-item>
-  
-        <ion-item *ngFor="let item of character['items']">
-          {{item.title}}
+        <ion-item *ngFor="let cliente of clientes">
+          {{cliente.Nome}}
           <ion-note item-end>
-            {{item.note}}
+            {{cliente.Cliente}}
           </ion-note>
         </ion-item>
     </ion-list>

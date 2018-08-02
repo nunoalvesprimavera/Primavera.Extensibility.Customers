@@ -1,11 +1,11 @@
 import { Component , ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams , Nav} from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-import { TabsPage } from './../tabs/tabs';
-import { ClientesPage } from './../clientes/clientes';
-import { ArtigosPage } from './../artigos/artigos';
+// import { TabsPage } from './../tabs/tabs';
+// import { ClientesPage } from './../clientes/clientes';
+// import { ArtigosPage } from './../artigos/artigos';
 
-import { MenuController } from 'ionic-angular'
+// import { MenuController } from 'ionic-angular'
 /**
  * Generated class for the MenuPage page.
  *

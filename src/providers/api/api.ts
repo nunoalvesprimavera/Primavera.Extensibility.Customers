@@ -74,6 +74,41 @@ export class ApiProvider {
                 )
   }
 
+  getEditaClientes(){
+    let token = localStorage.getItem('token')
+    //let cliente = ""//this.navParams.get('clients')
+    let headers = new Headers()
+    headers.append('Content-Type', 'application/x-www-form-urlencoded')
+    headers.append('Authorization', 'Bearer ' + token)
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.apiUrl+'Base/Clientes/Edita/1', options)
+                    .map(res => { 
+                    return res.json()
+                    }, err =>{
+                      alert("failed to get Base/Clientes/Edita ")
+                      console.log("ERROR!: ", err);
+                    }
+                )
+  }
+
+  
+  getEditaArtigos(){
+    let token = localStorage.getItem('token')
+    let headers = new Headers()
+    headers.append('Content-Type', 'application/x-www-form-urlencoded')
+    headers.append('Authorization', 'Bearer ' + token)
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.apiUrl+'Base/Artigos/Edita/001', options)
+                    .map(res => { 
+                    return res.json()
+                    }, err =>{
+                      alert("failed to get Base/Artigos ")
+                      console.log("ERROR!: ", err);
+                    }
+                )
+  }
 
 
 }

@@ -30,6 +30,10 @@ export class ArtigosPage {
 
   }
 
+  // openPage(){
+  //   this.navCtrl.push('EditaArtigosPage')
+  // }
+
   // itemSelected(artigo){
   //   this.navCtrl.push('artigosDetalhes', {artigo : artigo})
   // }
