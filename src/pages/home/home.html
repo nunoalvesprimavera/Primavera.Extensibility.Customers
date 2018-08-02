@@ -6,6 +6,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding center text-center>
+<ion-card>
+    <ion-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit">
       <ion-list>
           <ion-item>
@@ -23,13 +25,14 @@
           <ion-item *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
             <p danger>Por favor introduza a sua passoword</p>
           </ion-item>
-
       </ion-list>
 
         <div padding>
           <button ion-button type="submit" (click)="login()">Log in</button>
         </div>
     </form>
+  </ion-card-content>
+  </ion-card>
 </ion-content>
 <!-- <div class="login-page">
     <div class="form">
