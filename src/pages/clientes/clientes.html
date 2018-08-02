@@ -6,17 +6,29 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-      <ion-buttons start>
-        <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      </ion-buttons>
-      <ion-title>Clientes</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>Artigos</ion-title>
+  </ion-navbar>
 
-  </ion-header>
-   
-  <ion-content padding>
-    Pagina de Clientes
-  </ion-content>
+</ion-header>
+ 
+<ion-content padding>
+  <ion-card>
+    <ion-list>
+        <ion-item *ngFor="let cliente of clientes">
+          <ion-thumbnail item-start>
+            <img src="img/thumbnail-totoro.png">
+          </ion-thumbnail>
+          <h2>{{cliente.Cliente}}</h2>
+          <h3>{{cliente.Nome}}</h3>
+          <p>{{cliente.Fac_Mor}} - {{cliente.Pais}}</p>
+          <button ion-button clear item-end (click)="openModal()">View</button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+</ion-content>

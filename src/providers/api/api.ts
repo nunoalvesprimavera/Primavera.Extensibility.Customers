@@ -1,6 +1,7 @@
 import { Http, Headers, RequestOptions} from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { Platform } from 'ionic-angular';
 
 /*
   Generated class for the ApiProvider provider.
@@ -11,17 +12,16 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiProvider {
   public data : any
-  private apiUrl =  'https://localhost/Primavera.WebAPI/'
-  constructor(public http: Http) {
+  public apiUrl =  '/api/'
+  constructor(public http: Http,
+              private platfom: Platform) {
     console.log('Hello ApiProvider Provider');
+  
+    if(this.platfom.is("cordova")){
+    this.apiUrl = "http://localhost/Primavera.WebAPI/"
+  }
   }
 
-  getValues() {
-    return this.http.get(this.apiUrl+'teste/teste?str=true')
-                    .map(data => {
-                      return data.json();
-                    }); 
-  }
 
   getCompany(){
     let token = localStorage.getItem('token')
@@ -31,14 +31,15 @@ export class ApiProvider {
     let options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.apiUrl+'Administrador/ListaEmpresas', options)
-                    .map(function(res) {
+                    .map(res => { 
                     return res.json()
                     }, err =>{
-                      alert("failed")
+                      alert("failed to get Administrador/ListaEmpresas ")
                       console.log("ERROR!: ", err);
                     }
                 )
   }
+  
   getBaseArtigos() {
     let token = localStorage.getItem('token')
     let headers = new Headers()
@@ -56,22 +57,22 @@ export class ApiProvider {
                 )
   }
 
-  // getBaseClientes(){
-  //   let token = localStorage.getItem('token')
-  //   let headers = new Headers()
-  //   headers.append('Content-Type', 'application/x-www-form-urlencoded')
-  //   headers.append('Authorization', 'Bearer ' + token)
-  //   let options = new RequestOptions({ headers: headers });
+  getBaseClientes(){
+    let token = localStorage.getItem('token')
+    let headers = new Headers()
+    headers.append('Content-Type', 'application/x-www-form-urlencoded')
+    headers.append('Authorization', 'Bearer ' + token)
+    let options = new RequestOptions({ headers: headers });
 
-  //   return this.http.get(this.apiUrl+'Base/Clientes/LstClientes', options)
-  //                   .map(res => { 
-  //                   return res.json()
-  //                   }, err =>{
-  //                     alert("failed to get Base/Artigos ")
-  //                     console.log("ERROR!: ", err);
-  //                   }
-  //               )
-  // }
+    return this.http.get(this.apiUrl+'Base/Clientes/LstClientes', options)
+                    .map(res => { 
+                    return res.json()
+                    }, err =>{
+                      alert("failed to get Base/Clientes ")
+                      console.log("ERROR!: ", err);
+                    }
+                )
+  }
 
 
 

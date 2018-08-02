@@ -23,15 +23,16 @@ export class ArtigosPage {
               public apiProvider: ApiProvider) {
   this.getBaseArtigos()
   }
+  
 
   ionViewDidLoad() {
-   // this.getBaseArtigos()
+   this.getBaseArtigos()
 
   }
 
-  itemSelected(artigo){
-    this.navCtrl.push('artigosDetalhes', {artigo : artigo})
-  }
+  // itemSelected(artigo){
+  //   this.navCtrl.push('artigosDetalhes', {artigo : artigo})
+  // }
 
   getBaseArtigos() {
     this.apiProvider.getBaseArtigos()

@@ -4,6 +4,8 @@ import { ApiProvider } from '../../providers/api/api';
 import { TabsPage } from './../tabs/tabs';
 import { ClientesPage } from './../clientes/clientes';
 import { ArtigosPage } from './../artigos/artigos';
+
+import { MenuController } from 'ionic-angular'
 /**
  * Generated class for the MenuPage page.
  *

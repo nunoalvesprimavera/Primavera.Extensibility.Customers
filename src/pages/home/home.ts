@@ -10,7 +10,6 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  values : string[]
   loginForm : FormGroup
   username : AbstractControl
   password : AbstractControl
@@ -37,13 +36,7 @@ export class HomePage {
     }
   
   ionViewDidLoad() {
-    this.listValues();
-  }
-
-  listValues() {
-    this.apiProvider.getValues()
-       .subscribe(
-        values => this.values = values);
+   
   }
 
   // onSignIn() {

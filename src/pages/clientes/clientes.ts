@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 /**
  * Generated class for the ClientesPage page.
@@ -14,22 +14,29 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'clientes.html',
 })
 export class ClientesPage {
-  clientes : any
+  clientes : any[] = []
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public apiProvider: ApiProvider) {
-  // this.getBaseClientes()
+              public apiProvider: ApiProvider,
+              public modalCtrl: ModalController) {
+  this.getBaseClientes()
   }
+
+  openModal() {
+    let modal = this.modalCtrl.create('EditaClientesPage');
+    modal.present();
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ClientesPage');
   }
   
-  // getBaseArtigos() {
-  //   this.apiProvider.getBaseClientes()
-  //       .subscribe((data) => { 
-  //       this.clientes = data.DataSet.Table
-  //       })
-  // }
+  getBaseClientes() {
+    this.apiProvider.getBaseClientes()
+        .subscribe((data) => { 
+        this.clientes = data.DataSet.Table
+        })
+  }
 }

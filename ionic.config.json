@@ -4,5 +4,12 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "pro_id": "45d2ef74"
+  "pro_id": "45d2ef74",
+
+"proxies": [
+  {
+    "path": "/api",
+    "proxyUrl": "http://localhost/Primavera.WebAPI/"
+  } 
+  ]
 }

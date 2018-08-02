@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { LoginProvider } from '../../providers/login/login';
-import { Observable } from '../../../node_modules/rxjs/Observable';
 /**
  * Generated class for the CompanyPage page.
  *
@@ -24,16 +23,20 @@ export class CompanyPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public apiProvider:ApiProvider,
-              public loginProvider:LoginProvider) {
-  this.getCompany()
+              public loginProvider:LoginProvider,
+              public menu: MenuController){
+  menu.enable(true)
   }
 
   getCompany(){
     this.apiProvider.getCompany()
-        .subscribe(data =>{ this.companies = data})
+        .subscribe(data =>{ this.companies =  data
+        console.log(data)
+        })
     }
 
   ionViewDidLoad() {
+    this.getCompany()
     console.log('ionViewDidLoad CompanyPage');
   }
 
@@ -44,9 +47,4 @@ export class CompanyPage {
     alert("o login e :" + username + password +  this.companyModel)
     this.navCtrl.setRoot('MenuPage')
   }
-
-  // getEnterprises(){
-  //   this.apiProvider.getEnterprises()
-  // }
-
 }
