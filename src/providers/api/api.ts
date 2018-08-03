@@ -1,7 +1,7 @@
 import { Http, Headers, RequestOptions} from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { Platform } from 'ionic-angular';
+import { Platform, NavParams } from 'ionic-angular';
 
 /*
   Generated class for the ApiProvider provider.
@@ -81,8 +81,9 @@ export class ApiProvider {
     headers.append('Content-Type', 'application/x-www-form-urlencoded')
     headers.append('Authorization', 'Bearer ' + token)
     let options = new RequestOptions({ headers: headers });
+    let numCliente = localStorage.getItem('numCliente')
 
-    return this.http.get(this.apiUrl+'Base/Clientes/Edita/1', options)
+    return this.http.get(this.apiUrl+'Base/Clientes/Edita/'+numCliente, options)
                     .map(res => { 
                     return res.json()
                     }, err =>{
@@ -99,8 +100,9 @@ export class ApiProvider {
     headers.append('Content-Type', 'application/x-www-form-urlencoded')
     headers.append('Authorization', 'Bearer ' + token)
     let options = new RequestOptions({ headers: headers });
+    let numArtigo = localStorage.getItem('numArtigo')
 
-    return this.http.get(this.apiUrl+'Base/Artigos/Edita/001', options)
+    return this.http.get(this.apiUrl+'Base/Artigos/Edita/'+numArtigo, options)
                     .map(res => { 
                     return res.json()
                     }, err =>{

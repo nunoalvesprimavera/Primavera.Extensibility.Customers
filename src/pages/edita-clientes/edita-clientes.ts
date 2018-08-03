@@ -15,7 +15,7 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'edita-clientes.html',
 })
 export class EditaClientesPage {
-  //clientes: any[]
+  clientes: any[] = []
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -30,13 +30,23 @@ export class EditaClientesPage {
 
   editaClientes(){
     this.apiProvider.getEditaClientes().subscribe(data => {
-      console.log(data)
-     // this.clientes = Array.of(data)
+    console.log(data)
+    this.clientes = Array.of(data)
     })
   }
 
-  dismissModal(){
-    this.viewCtrl.dismiss();
+  getNumCliente(){
+    let cliente = this.navParams.get('clientes')
+    localStorage.setItem('numCliente', cliente)
+    console.log(cliente);
+  }
+
+  atualizaCliente(){
+
+  }
+
+  closePage(){
+    this.viewCtrl.dismiss()
   }
 
 }

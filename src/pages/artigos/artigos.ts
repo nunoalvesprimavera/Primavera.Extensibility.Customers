@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-
 /**
  * Generated class for the ArtigosPage page.
  *
@@ -27,12 +26,12 @@ export class ArtigosPage {
 
   ionViewDidLoad() {
    this.getBaseArtigos()
-
   }
 
-  // openPage(){
-  //   this.navCtrl.push('EditaArtigosPage')
-  // }
+  openPage(artigo){
+    this.navCtrl.push('EditaArtigosPage', {artigos : artigo})
+  }
+
 
   // itemSelected(artigo){
   //   this.navCtrl.push('artigosDetalhes', {artigo : artigo})

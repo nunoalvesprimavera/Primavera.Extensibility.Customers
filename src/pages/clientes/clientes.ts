@@ -15,21 +15,18 @@ import { ApiProvider } from '../../providers/api/api';
 })
 export class ClientesPage {
   clientes : any[] = []
-  //clientModel: any
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public apiProvider: ApiProvider,
               public modalCtrl: ModalController) {
   this.getBaseClientes()
-  //localStorage.setItem('cliente', this.clientModel)
   }
 
-  // openPage() {
-  //   const clients = this.clientes
-  //   this.navCtrl.push('EditaClientesPage', {clients: clients})
-  // }
-
+ 
+  openPage(cliente){
+    this.navCtrl.push('EditaClientesPage', {clientes : cliente})
+  }
 
   ionViewDidLoad() {
     this.getBaseClientes()

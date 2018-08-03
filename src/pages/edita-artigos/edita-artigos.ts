@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-
+;
 /**
  * Generated class for the EditaArtigosPage page.
  *
@@ -15,20 +15,42 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'edita-artigos.html',
 })
 export class EditaArtigosPage {
-  artigos: any[]
+  artigos: any[] = []
+  teste: any
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public apiProvider: ApiProvider) {
+              public apiProvider: ApiProvider,
+              public viewCtrl: ViewController) {
+  this.editaArtigos()
+  //this.getNumArtigo()
   }
 
-  editaClientes(){
+  editaArtigos(){
     this.apiProvider.getEditaArtigos().subscribe(data => {
-      console.log(data)
-     this.artigos = data
+    console.log(data)
+    this.artigos = Array.of(data)
     })
   }
+
+  getNumArtigo(){
+    let artigo = this.navParams.get('artigos')
+    localStorage.setItem('numArtigo', artigo)
+    console.log(artigo);
+  }
+
+  atualizaArtigo(){
+
+  }
+
+  closePage(){
+    this.viewCtrl.dismiss()
+   
+  }
   ionViewDidLoad() {
+    this.getNumArtigo()
     console.log('ionViewDidLoad EditaArtigosPage');
+
   }
 
 }
