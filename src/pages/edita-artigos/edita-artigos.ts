@@ -45,8 +45,8 @@ export class EditaArtigosPage {
 
   closePage(){
     this.viewCtrl.dismiss()
-   
   }
+  
   ionViewDidLoad() {
     this.getNumArtigo()
     console.log('ionViewDidLoad EditaArtigosPage');

@@ -16,6 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TabsPage {
   tab1Root: any = 'ArtigosPage';
   tab2Root: any = 'ClientesPage';
+  tab3Root: any = 'VendaPage';
   myIndex: number
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // Set the active tab based on the passed index from menu.ts

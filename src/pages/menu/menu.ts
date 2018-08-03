@@ -35,7 +35,8 @@ export class MenuPage {
 
   pages: PageInterface[] = [
     { title: 'Artigos', pageName: 'TabsPage', tabComponent: 'ArtigosPage', index: 0, icon: 'home' },
-    { title: 'Clientes', pageName: 'TabsPage', tabComponent: 'ClientesPage', index: 1, icon: 'contacts' }
+    { title: 'Clientes', pageName: 'TabsPage', tabComponent: 'ClientesPage', index: 1, icon: 'contacts' },
+    { title: 'Venda', pageName: 'TabsPage', tabComponent: 'VendaPage', index: 1, icon: 'contacts' }
   ];
 
   constructor(public navCtrl: NavController, 
